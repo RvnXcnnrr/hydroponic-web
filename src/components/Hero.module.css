@@ -1,0 +1,124 @@
+/* components/Hero.module.css */
+/* components/Hero.module.css */
+.hero {
+    @apply relative h-[838px] flex items-center justify-center; /* Adjust the height as needed */
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4f0e8 100%);
+    overflow: hidden;
+}
+
+  
+  .heroContent {
+    @apply text-center px-4 z-10;
+    max-width: 1200px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .title {
+    @apply mb-6;
+  }
+  
+  .titleMain {
+    @apply block text-5xl md:text-7xl font-bold mb-2;
+    background: linear-gradient(to right, #2c7744, #5a9367);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+  }
+  
+  .titleSub {
+    @apply block text-xl md:text-2xl font-medium text-gray-600;
+  }
+  
+  .description {
+    @apply text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto;
+  }
+  
+  .ctaContainer {
+    @apply flex flex-col sm:flex-row gap-4 justify-center;
+  }
+  
+  .primaryBtn {
+    @apply px-8 py-3 rounded-full font-medium text-white;
+    background: linear-gradient(to right, #2c7744, #5a9367);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(44, 119, 68, 0.3);
+  }
+  
+  .primaryBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(44, 119, 68, 0.4);
+  }
+  
+  .secondaryBtn {
+    @apply px-8 py-3 rounded-full font-medium;
+    border: 2px solid #2c7744;
+    color: #2c7744;
+    transition: all 0.3s ease;
+  }
+  
+  .secondaryBtn:hover {
+    background-color: rgba(44, 119, 68, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  .scrollIndicator {
+    @apply absolute bottom-8 left-1/2 transform -translate-x-1/2;
+  }
+  
+  .scrollIndicator span {
+    @apply block w-6 h-10 rounded-full border-2 border-gray-400 relative;
+  }
+  
+  .scrollIndicator span::after {
+    content: '';
+    @apply absolute top-1 left-1/2 transform -translate-x-1/2 w-1 h-2 rounded-full bg-gray-600;
+    animation: scrollAnimation 2s infinite;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scrollAnimation {
+    0% {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(8px) translateX(-50%);
+    }
+  }
+  
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    .hero {
+      background: linear-gradient(135deg, #1a2e22 0%, #0f1a13 100%);
+    }
+    
+    .titleSub,
+    .description {
+      @apply text-gray-300;
+    }
+    
+    .secondaryBtn {
+      border-color: #5a9367;
+      color: #5a9367;
+    }
+    
+    .scrollIndicator span {
+      border-color: #5a9367;
+    }
+    
+    .scrollIndicator span::after {
+      @apply bg-green-400;
+    }
+  }
